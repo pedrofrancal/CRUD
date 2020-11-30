@@ -103,6 +103,7 @@ public class ClienteBoundary implements EventHandler<ActionEvent>, GerarTela {
 	@Override
 	/**
 	 * Função que ativa as funções do controller pelos botões
+	 * @param e ActionEvent
 	 */
 	public void handle(ActionEvent e) {
 		if (btnChamado == e.getTarget()) {
@@ -127,7 +128,7 @@ public class ClienteBoundary implements EventHandler<ActionEvent>, GerarTela {
 
 	/**
 	 * Função para copiar o email para a boundary
-	 * @param email
+	 * @param email String
 	 */
 	public void setEmail(String email) {
 		this.email = email;
