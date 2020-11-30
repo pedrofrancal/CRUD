@@ -81,7 +81,8 @@ public class SuporteBoundary implements EventHandler<ActionEvent>, GerarTela {
 				e1.printStackTrace();
 			}
 		}else if(btnAtender == e.getTarget()) {
-			// TODO gerar atendimento
+			BorderPane paneNovo = (BorderPane) panePrincipal.getParent();
+			paneNovo.setCenter(new SuporteChamadoBoundary().gerarTela());
 		}
 	}
 

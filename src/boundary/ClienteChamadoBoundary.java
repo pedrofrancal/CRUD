@@ -32,7 +32,7 @@ public class ClienteChamadoBoundary implements EventHandler<ActionEvent>, GerarT
 
 		GridPane paneCampos = new GridPane();
 
-		paneCampos.add(new Label("DESCRIÇÃO DO PROBLEMA"), 0, 1);
+		paneCampos.add(new Label("Descrição do problema"), 0, 1);
 		paneCampos.add(txtDescricao, 1, 1);
 		
 		txtDescricao.setPrefSize(200, 200);

@@ -11,7 +11,9 @@ FROM cliente c
 WHERE c.logon_email = 'cliente@email.com'
 
 INSERT INTO produto(preco, nome, descricao) 
-VALUES(58.3, 'banana', 'uma banana eletronica')
+VALUES
+(58.3, 'banana', 'uma banana eletronica'),
+(1337.0, 'batmovel', 'o carro do batman')
 
 SELECT * FROM produto
 
@@ -30,3 +32,5 @@ UPDATE funcionario SET cpf = '12345678901' WHERE logon_email = 'suporte@email.co
 select * from funcionario 
 select * from suporte
 select * from cliente
+select * from carrinho
+select * from chamado

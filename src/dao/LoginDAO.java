@@ -11,25 +11,11 @@ import entity.Login;
 import entity.Suporte;
 
 public class LoginDAO {
-//	private static final String DRIVER = "net.sourceforge.jtds.jdbc.Driver";
-//	private static final String HOST = "192.168.99.100";
-//	private static final String DB = "lojaOnline";
-//	private static final String USER = "SA";
-//	private static final String PASS = "P4ssw0rd";
 
-//	public LoginDAO() {
-//		try {
-//			Class.forName(DRIVER);
-//		} catch (ClassNotFoundException e) {
-//			e.printStackTrace();
-//		}
-//	}
 
 	public boolean ValidaLogin(Login user) throws DAOException {
 		try {
 			Connection con = ConnectionSingleton.getInstance().getConnection();
-//			Connection con = DriverManager.getConnection(String.format(
-//					"jdbc:jtds:sqlserver://%s:1433;databaseName=%s;user=%s;password=%s;", HOST, DB, USER, PASS));
 			String sql = "SELECT senha FROM logon WHERE email = ?";
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, user.getEmail());

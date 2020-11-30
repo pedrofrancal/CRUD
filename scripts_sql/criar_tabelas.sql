@@ -53,17 +53,13 @@ CREATE TABLE chamado(
 id INT NOT NULL IDENTITY,
 descricao VARCHAR(MAX) NULL,
 data_chamado DATETIME NOT NULL CHECK(data_chamado <= GETDATE()),
-cliente_cpf CHAR(11) NOT NULL UNIQUE,
 cliente_logon_email VARCHAR(255) NOT NULL UNIQUE,
-suporte_funcionario_cpf CHAR(11) NOT NULL UNIQUE,
-suporte_funcionario_logon_email VARCHAR(255) NOT NULL UNIQUE,
 descricao_atendimento VARCHAR(MAX) NULL,
 situacao_atendimento VARCHAR(255) DEFAULT('EM ANDAMENTO'),
-PRIMARY KEY(id, cliente_cpf, cliente_logon_email),
-FOREIGN KEY(cliente_cpf) REFERENCES cliente(cpf),
+PRIMARY KEY(id, cliente_logon_email),
 FOREIGN KEY(cliente_logon_email) REFERENCES cliente(logon_email),
-FOREIGN KEY(suporte_funcionario_logon_email) REFERENCES suporte(funcionario_logon_email)
 )
+CREATE UNIQUE INDEX idChamado ON chamado(cliente_logon_email asc, id asc)
 
 CREATE TABLE produto(
 id INT NOT NULL IDENTITY,
@@ -73,15 +69,12 @@ descricao VARCHAR(255) NOT NULL,
 PRIMARY KEY(id)
 )
 
-CREATE TABLE carrinho_compra(
-id_produto INT NOT NULL IDENTITY,
-cliente_cpf CHAR(11) NOT NULL UNIQUE,
+CREATE TABLE carrinho(
+produto_id INT NOT NULL,
 cliente_logon_email VARCHAR(255) NOT NULL UNIQUE,
-total DECIMAL(7,2),
-data_pedido DATETIME,
-PRIMARY KEY(id_produto, cliente_logon_email, cliente_cpf),
-FOREIGN KEY(cliente_logon_email) REFERENCES cliente(logon_email),
-FOREIGN KEY(cliente_cpf) REFERENCES cliente(cpf)
+PRIMARY KEY(produto_id, cliente_logon_email),
+FOREIGN KEY(produto_id) REFERENCES produto(id),
+FOREIGN KEY(cliente_logon_email) REFERENCES cliente(logon_email)
 )
 
 INSERT INTO logon VALUES

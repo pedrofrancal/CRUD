@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entity.Carrinho;
-import entity.Produto;
-import javafx.beans.property.StringProperty;
 
 public class SuporteDAO {
 
