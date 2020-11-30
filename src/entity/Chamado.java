@@ -5,8 +5,8 @@ import java.time.LocalDate;
 public class Chamado {
 	private int id;
 	private String descricao;
-	private LocalDate dataChamado;
 	private Cliente cliente;
+	private LocalDate dataChamado;
 	
 	public int getId() {
 		return id;

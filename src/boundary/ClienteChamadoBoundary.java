@@ -6,9 +6,11 @@ import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -60,6 +62,8 @@ public class ClienteChamadoBoundary implements EventHandler<ActionEvent>, GerarT
 			try {
 				cc.abrirChamado(this.email);
 			} catch (DAOException e1) {
+				Alert a = new Alert(AlertType.ERROR, "Você possui um chamado em andamento");
+				a.show();
 				e1.printStackTrace();
 			}
 		} else if (btnPedido == e.getTarget()) {

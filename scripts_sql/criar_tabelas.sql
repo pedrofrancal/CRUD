@@ -71,7 +71,7 @@ PRIMARY KEY(id)
 
 CREATE TABLE carrinho(
 produto_id INT NOT NULL,
-cliente_logon_email VARCHAR(255) NOT NULL UNIQUE,
+cliente_logon_email VARCHAR(255) NOT NULL,
 PRIMARY KEY(produto_id, cliente_logon_email),
 FOREIGN KEY(produto_id) REFERENCES produto(id),
 FOREIGN KEY(cliente_logon_email) REFERENCES cliente(logon_email)

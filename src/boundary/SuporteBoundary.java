@@ -23,7 +23,7 @@ public class SuporteBoundary implements EventHandler<ActionEvent>, GerarTela {
 	private BorderPane panePrincipal = new BorderPane();
 
 	private Button btnAtender = new Button("Atender Chamados");
-	private Button btnPesquisar = new Button("Pesquisar");
+	private Button btnPesquisar = new Button("Pesquisar Pedido");
 
 	private SuporteController sc = new SuporteController();
 	
@@ -36,7 +36,7 @@ public class SuporteBoundary implements EventHandler<ActionEvent>, GerarTela {
 
 		GridPane paneCampos = new GridPane();
 
-		paneCampos.add(new Label("Nome"), 0, 1);
+		paneCampos.add(new Label("Email"), 0, 1);
 		paneCampos.add(txtEmail, 1, 1);
 		
 		paneCampos.add(btnAtender, 0, 5);
@@ -66,7 +66,6 @@ public class SuporteBoundary implements EventHandler<ActionEvent>, GerarTela {
 
 		TableColumn<Carrinho, String> colEmail = new TableColumn<>("Email");
 		colEmail.setCellValueFactory(new PropertyValueFactory<Carrinho, String>("email"));
-
 
 		tabela.getColumns().addAll(colId, colEmail);
 		tabela.setItems(sc.getLista());
