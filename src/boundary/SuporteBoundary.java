@@ -62,10 +62,10 @@ public class SuporteBoundary implements EventHandler<ActionEvent>, GerarTela {
 		Bindings.bindBidirectional(txtEmail.textProperty(), sc.getEmailProperty());
 
 		TableColumn<Carrinho, Integer> colId = new TableColumn<>("Id");
-		colId.setCellValueFactory(new PropertyValueFactory<Carrinho, Integer>("id"));
+		colId.setCellValueFactory(new PropertyValueFactory<Carrinho, Integer>("idProduto"));
 
 		TableColumn<Carrinho, String> colEmail = new TableColumn<>("Email");
-		colEmail.setCellValueFactory(new PropertyValueFactory<Carrinho, String>("email"));
+		colEmail.setCellValueFactory(new PropertyValueFactory<Carrinho, String>("clienteEmail"));
 
 		tabela.getColumns().addAll(colId, colEmail);
 		tabela.setItems(sc.getLista());
