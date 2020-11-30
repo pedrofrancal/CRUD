@@ -1,6 +1,8 @@
 package controller;
 
 import boundary.AdministradorBoundary;
+import boundary.ClienteBoundary;
+import boundary.SuporteBoundary;
 import dao.DAOException;
 import dao.LoginDAO;
 import entity.Administrador;
@@ -44,9 +46,11 @@ public class LoginController {
 			if(user instanceof Administrador) {
 				paneHierarquico = new AdministradorBoundary().gerarTela();
 			}else if(user instanceof Suporte) {
-				System.out.println("sup");
+				paneHierarquico = new SuporteBoundary().gerarTela();
 			}else {
-				System.out.println("cliente");
+				ClienteBoundary cB = new ClienteBoundary();
+				cB.setEmail(this.email.get());
+				paneHierarquico = cB.gerarTela();
 			}
 		} else {
 			Alert a = new Alert(AlertType.ERROR, "SENHA ERRADA");

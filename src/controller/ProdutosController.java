@@ -49,7 +49,12 @@ public class ProdutosController {
 		lista.clear();
 		lista.addAll(pd.pesquisarPorNome(txt));
 	}
-
+	
+	public void pesquisarTodosProdutos() throws DAOException{
+		lista.clear();
+		lista.addAll(pd.pesquisarTodosProdutos());
+	}
+	
 	public IntegerProperty getIdProperty() {
 		return id;
 	}

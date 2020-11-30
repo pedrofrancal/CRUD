@@ -4,10 +4,14 @@ import java.time.LocalDate;
 
 import dao.ClientesDAO;
 import dao.DAOException;
+import dao.ProdutosDAO;
 import entity.Cliente;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class ClientesController {
 	
@@ -20,6 +24,10 @@ public class ClientesController {
 	private SimpleStringProperty Telefone = new SimpleStringProperty();
 	private SimpleStringProperty Cep = new SimpleStringProperty();
 	
+	private IntegerProperty id = new SimpleIntegerProperty();
+	private StringProperty nomePedido = new SimpleStringProperty();
+	
+	private ProdutosDAO pd = new ProdutosDAO();
 	private ClientesDAO cd = new ClientesDAO();
 	
 	public Cliente getCliente() {
@@ -48,8 +56,12 @@ public class ClientesController {
 		}
 	}
 	
+	public void adicionarPedidoCliente(String email) throws DAOException {
+		pd.adicionarCompra(email, this.id.get());
+	}
+	
 	public void adicionar() throws DAOException{
-		Cliente c = new Cliente();
+		Cliente c = getCliente();
 		cd.adicionar(c);
 	}
 
@@ -115,5 +127,21 @@ public class ClientesController {
 
 	public void setCepProperty(SimpleStringProperty cepProperty) {
 		Cep= cepProperty;
+	}
+
+	public IntegerProperty getIdProperty() {
+		return id;
+	}
+
+	public void setIdProperty(IntegerProperty id) {
+		this.id = id;
+	}
+
+	public StringProperty getNomePedidoProperty() {
+		return nomePedido;
+	}
+
+	public void setNomePedidoProperty(StringProperty nomePedido) {
+		this.nomePedido = nomePedido;
 	}
 }

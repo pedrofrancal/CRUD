@@ -47,5 +47,40 @@ public class ProdutosDAO {
 		}
 		return lista;
 	}
+	
+	public List<Produto> pesquisarTodosProdutos() throws DAOException{
+		List<Produto> lista = new ArrayList<>();
+		try {
+			Connection con = ConnectionSingleton.getInstance().getConnection();
+			String sql = "SELECT * FROM produto";
+			PreparedStatement st = con.prepareStatement(sql);
+			ResultSet rs = st.executeQuery();
+			while(rs.next()) {
+				Produto p = new Produto();
+				p.setDescricao(rs.getString("descricao"));
+				p.setId(rs.getInt("id"));
+				p.setNome(rs.getString("nome"));
+				p.setPreco(rs.getDouble("preco"));
+				lista.add(p);
+			}
+		}catch(SQLException e) {
+			throw new DAOException(e);
+		}
+		return lista;
+	}
+	
+	public void adicionarCompra(String email, int pedidoID) throws DAOException{
+		try {
+			Connection con = ConnectionSingleton.getInstance().getConnection();
+			String sql = "INSERT INTO carrinho VALUES (?, ?)";
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setLong(1, pedidoID);
+			st.setString(2, email);
+			st.executeUpdate();
+			con.close();
+		}catch(SQLException e) {
+			throw new DAOException(e);
+		}
+	}
 
 }
