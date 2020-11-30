@@ -10,7 +10,6 @@ import java.util.List;
 
 import entity.Chamado;
 import entity.Cliente;
-import entity.Produto;
 
 public class ChamadoDAO {
 	
