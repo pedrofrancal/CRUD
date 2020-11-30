@@ -18,6 +18,9 @@ import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 import javafx.util.converter.DoubleStringConverter;
 
+/**
+ * Classe que controla as interações do administrador
+ */
 public class AdministradorBoundary implements EventHandler<ActionEvent>, GerarTela {
 
 	private TextField txtNome = new TextField();
@@ -35,6 +38,9 @@ public class AdministradorBoundary implements EventHandler<ActionEvent>, GerarTe
 	private TableView<Produto> tabela = new TableView<>();
 
 	@Override
+	/**
+	 * Retorna um Pane, gerando uma tela JavaFX
+	 */
 	public Pane gerarTela() {
 				
 		vincularCampos();
@@ -62,6 +68,9 @@ public class AdministradorBoundary implements EventHandler<ActionEvent>, GerarTe
 	}
 
 	@SuppressWarnings("unchecked")
+	/**
+	 * Vincula os campos da classe com o controller
+	 */
 	private void vincularCampos() {
 		StringConverter<? extends Number> converter = new DoubleStringConverter();
 		Bindings.bindBidirectional(txtNome.textProperty(), pc.getNomeProperty());
@@ -85,6 +94,9 @@ public class AdministradorBoundary implements EventHandler<ActionEvent>, GerarTe
 	}
 
 	@Override
+	/**
+	 * Chama as funções do controller
+	 */
 	public void handle(ActionEvent e) {
 		if (btnGravar == e.getTarget()) {
 			try {

@@ -13,6 +13,9 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+/**
+ * Classe controladora de clientes
+ */
 public class ClientesController {
 	
 	private SimpleStringProperty Email= new SimpleStringProperty();
@@ -30,6 +33,9 @@ public class ClientesController {
 	private ProdutosDAO pd = new ProdutosDAO();
 	private ClientesDAO cd = new ClientesDAO();
 	
+	/**
+	 * Função que retorna cliente preenchido
+	 */
 	public Cliente getCliente() {
 		Cliente c = new Cliente();
 		c.setCep(this.Cep.get());
@@ -43,6 +49,9 @@ public class ClientesController {
 		return c;
 	}
 	
+	/**
+	 * Função que utiliza um cliente preenchido para mudar o property
+	 */
 	public void setCliente(Cliente c) {
 		if(c!=null) {
 			this.Cep.set(c.getCep());
@@ -56,15 +65,22 @@ public class ClientesController {
 		}
 	}
 	
+	/**
+	 * Função que adiciona o cliente de um pedido via DAO
+	 */
 	public void adicionarPedidoCliente(String email) throws DAOException {
 		pd.adicionarCompra(email, this.id.get());
 	}
 	
+	/**
+	 * Função que adiciona um novo cliente com seu logon via DAO
+	 */
 	public void adicionar() throws DAOException{
 		Cliente c = getCliente();
 		cd.adicionar(c);
 	}
 
+	
 	public SimpleStringProperty getEmailProperty() {
 		return Email;
 	}

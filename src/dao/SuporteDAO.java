@@ -9,8 +9,17 @@ import java.util.List;
 
 import entity.Carrinho;
 
+/**
+ * Classe do suporte para utilização no banco de dados
+ */
 public class SuporteDAO {
 
+	/**
+	 * Função que retorna uma lista com todas as compras em um carrinho no banco de dados
+	 * 
+	 * @return List
+	 * @throws DAOException exceção DAO
+	 */
 	public List<Carrinho> pesquisarTodasCompras() throws DAOException{
 		List<Carrinho> lista = new ArrayList<>();
 		try {
@@ -30,6 +39,12 @@ public class SuporteDAO {
 		return lista;
 	}
 
+	/**
+	 * Função que retorna um carrinho vinculado a um email no banco de dados
+	 * @param email String
+	 * @return List
+	 * @throws DAOException exceção DAO
+	 */
 	public List<Carrinho> pesquisarPorEmail(String email) throws DAOException {
 		List<Carrinho> lista = new ArrayList<>();
 		try {

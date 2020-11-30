@@ -10,6 +10,9 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * Classe controladora das funções do suporte
+ */
 public class SuporteController {
 	
 	private ObservableList<Carrinho> lista = FXCollections.observableArrayList();
@@ -18,6 +21,9 @@ public class SuporteController {
 	private StringProperty email = new SimpleStringProperty();
 	private SuporteDAO sd = new SuporteDAO();
 	
+	/**
+	 * Função que preenche um carrinho com base em suas properties
+	 */
 	public Carrinho getCarrinho() {
 		Carrinho c = new Carrinho();
 		c.setIdProduto(this.id.get());
@@ -25,6 +31,9 @@ public class SuporteController {
 		return c;
 	}
 
+	/**
+	 * Função que preenche as properties de acordo com um carrinho
+	 */
 	public void setCarrinho(Carrinho c) {
 		if (c != null) {
 			this.id.set(c.getIdProduto());
@@ -32,11 +41,17 @@ public class SuporteController {
 		}
 	}
 	
+	/**
+	 * Função que retorna todas as compras pendentes via DAO
+	 */
 	public void pesquisarTodosProdutos() throws DAOException{
 		lista.clear();
 		lista.addAll(sd.pesquisarTodasCompras());
 	}
 	
+	/**
+	 * Função que pesquisa por email compras pendentes via DAO
+	 */
 	public void pesquisarProduto() throws DAOException{
 		String txt = this.email.get();
 		lista.clear();

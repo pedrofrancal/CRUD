@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Classe para conexão com o banco de dados
+ */
 public class ConnectionSingleton {
 	private static final String DRIVER = "net.sourceforge.jtds.jdbc.Driver";
 	private static final String HOST = "192.168.99.100";
@@ -14,6 +17,9 @@ public class ConnectionSingleton {
 	private static ConnectionSingleton instance = null;
 	private Connection con;
 
+	/**
+	 * Função que retorna a instancia da conexão
+	 */
 	public static ConnectionSingleton getInstance() {
 		if (instance == null) {
 			instance = new ConnectionSingleton();
@@ -21,6 +27,9 @@ public class ConnectionSingleton {
 		return instance;
 	}
 
+	/**
+	 * Construtor conectando com a biblioteca
+	 */
 	private ConnectionSingleton() {
 		try {
 			Class.forName(DRIVER);
@@ -29,6 +38,9 @@ public class ConnectionSingleton {
 		}
 	}
 
+	/**
+	 * Função que retorna a conexão
+	 */
 	public Connection getConnection() {
 		try {
 			if (con == null || con.isClosed()) {

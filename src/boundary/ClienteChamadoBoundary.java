@@ -15,6 +15,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
+/**
+ * Classe que controla as interações de chamado do cliente
+ */
 public class ClienteChamadoBoundary implements EventHandler<ActionEvent>, GerarTela {
 
 	private TextField txtDescricao = new TextField();
@@ -28,6 +31,9 @@ public class ClienteChamadoBoundary implements EventHandler<ActionEvent>, GerarT
 	private ChamadoController cc = new ChamadoController();
 
 	@Override
+	/**
+	 * Função que retorna o pane com a tela gerada para gerar chamados
+	 */
 	public Pane gerarTela() {
 
 		vincularCampos();
@@ -52,11 +58,17 @@ public class ClienteChamadoBoundary implements EventHandler<ActionEvent>, GerarT
 		return panePrincipal;
 	}
 
+	/**
+	 * Função que vincula os campos da boundary com o controller
+	 */
 	private void vincularCampos() {
 		Bindings.bindBidirectional(txtDescricao.textProperty(), cc.getDescricaoProperty());
 	}
 
 	@Override
+	/**
+	 * Função que envia os comandos para o controller
+	 */
 	public void handle(ActionEvent e) {
 		if (btnFeedback == e.getTarget()) {
 			try {
@@ -74,6 +86,10 @@ public class ClienteChamadoBoundary implements EventHandler<ActionEvent>, GerarT
 		}
 	}
 
+	/**
+	 * Setter do email
+	 * @param email
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}

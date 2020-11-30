@@ -13,6 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * Classe que gera a tela de apresentação do programa
+ */
 public class TelaPrincipal extends Application implements EventHandler<ActionEvent>, ProcessarComandos {
 
 	private MenuBar mnuBar = new MenuBar();
@@ -26,12 +29,18 @@ public class TelaPrincipal extends Application implements EventHandler<ActionEve
 
 	private BorderPane panePrincipal = new BorderPane();
 
+	/**
+	 * Função principal, gerando a tela principal JavaFX
+	 */
 	public static void main(String[] args) {
 		// Chamar a tela do javaFX
 		Application.launch(TelaPrincipal.class, args);
 	}
 
 	@Override
+	/**
+	 * Função de inicio do javaFX
+	 */
 	public void start(Stage stage) throws Exception {
 		ImageView imagens = new ImageView();
 		// Colocar background em branco
@@ -60,6 +69,9 @@ public class TelaPrincipal extends Application implements EventHandler<ActionEve
 	}
 
 	@Override
+	/**
+	 * Função que controla os comandos da tela principal
+	 */
 	public void executarComando(String comando) {
 		if ("sair".equalsIgnoreCase(comando)) {
 			System.exit(0);
@@ -71,6 +83,9 @@ public class TelaPrincipal extends Application implements EventHandler<ActionEve
 	}
 
 	@Override
+	/**
+	 * Função que executa os comandos passados pelos botões
+	 */
 	public void handle(ActionEvent e) {
 		if (e.getTarget() == mnuSair) {
 			executarComando("sair");

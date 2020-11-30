@@ -16,6 +16,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
+/**
+ * Classe responsável pela interação de cadastros 
+ */
 public class CadastrosBoundary implements EventHandler<ActionEvent>, GerarTela{
 
 	private TextField txtEmail = new TextField();
@@ -36,6 +39,9 @@ public class CadastrosBoundary implements EventHandler<ActionEvent>, GerarTela{
 	private TableView<Funcionario> tabela = new TableView<>();
 	
 	@Override
+	/**
+	 * Função retorna um Pane, possuindo a tela de CRUD funcionario 
+	 */
 	public Pane gerarTela() {
 		vincularCampos();
 
@@ -68,6 +74,9 @@ public class CadastrosBoundary implements EventHandler<ActionEvent>, GerarTela{
 	}
 
 	@Override
+	/**
+	 * Função que chama as funções do controller
+	 */
 	public void handle(ActionEvent e) {
 		if (btnGravar == e.getTarget()) {
 			try {
@@ -100,6 +109,9 @@ public class CadastrosBoundary implements EventHandler<ActionEvent>, GerarTela{
 	}
 	
 	@SuppressWarnings("unchecked")
+	/**
+	 * Função que vincula campos com o controller utilizando o Binding
+	 */
 	private void vincularCampos() {
 		Bindings.bindBidirectional(txtNome.textProperty(), cc.getNomeProperty());
 		Bindings.bindBidirectional(txtEmail.textProperty(), cc.getEmailProperty());

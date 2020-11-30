@@ -1,6 +1,5 @@
 package boundary;
 
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import controller.ChamadoController;
@@ -20,9 +19,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.util.StringConverter;
-import javafx.util.converter.LocalDateStringConverter;
 
+/**
+ * Classe que gera a tela com interações do suporte com chamado
+ */
 public class SuporteChamadoBoundary implements EventHandler<ActionEvent>, GerarTela {
 
 	private TextField txtAtendimento = new TextField();
@@ -37,6 +37,9 @@ public class SuporteChamadoBoundary implements EventHandler<ActionEvent>, GerarT
 	private TableView<Chamado> tabela = new TableView<>();
 
 	@Override
+	/**
+	 * Função que gera a tela de suporte para chamado
+	 */
 	public Pane gerarTela() {
 
 		vincularCampos();
@@ -70,11 +73,12 @@ public class SuporteChamadoBoundary implements EventHandler<ActionEvent>, GerarT
 		return panePrincipal;
 	}
 
-	@SuppressWarnings({ "unchecked", "unused" })
+	@SuppressWarnings("unchecked")
+	/**
+	 * Função que vincula os campos com o controller
+	 */
 	private void vincularCampos() {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		StringConverter<LocalDate> dateConverter = new LocalDateStringConverter(dtf, dtf);
-		
 		Bindings.bindBidirectional(txtAtendimento.textProperty(), cc.getDescricaoProperty());
 		Bindings.bindBidirectional(txtEmail.textProperty(), cc.getEmailClienteProperty());
 		
@@ -107,6 +111,9 @@ public class SuporteChamadoBoundary implements EventHandler<ActionEvent>, GerarT
 	}
 
 	@Override
+	/**
+	 * Função que manipula a interação com o controlador
+	 */
 	public void handle(ActionEvent e) {
 		if (btnResolver == e.getTarget()) {
 			try {

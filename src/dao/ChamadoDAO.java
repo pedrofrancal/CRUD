@@ -11,8 +11,14 @@ import java.util.List;
 import entity.Chamado;
 import entity.Cliente;
 
+/**
+ * Classe que manipula o banco de dados de chamado
+ */
 public class ChamadoDAO {
 	
+	/**
+	 * Função que responde um chamado no banco de dados
+	 */
 	public void resolver(String email, String descricao) throws DAOException{
 		try {
 			Connection con = ConnectionSingleton.getInstance().getConnection();
@@ -28,6 +34,9 @@ public class ChamadoDAO {
 		}
 	}
 	
+	/**
+	 * Função utilizada para mudar o status de um chamado para ATENDIDO
+	 */
 	private void mudarSituacao(String email) throws DAOException {
 		try {
 			Connection con = ConnectionSingleton.getInstance().getConnection();
@@ -41,6 +50,9 @@ public class ChamadoDAO {
 		}
 	}
 	
+	/**
+	 * Função que abre um chamado no banco de dados
+	 */
 	public void abrirChamado(String email, String descricao) throws DAOException{
 		try {
 			Connection con = ConnectionSingleton.getInstance().getConnection();
@@ -56,6 +68,9 @@ public class ChamadoDAO {
 		}
 	}
 
+	/**
+	 * Função que, diferente de seu nome, apaga um chamado do banco de dados
+	 */
 	public void arquivar(String email) throws DAOException{
 		try {
 			Connection con = ConnectionSingleton.getInstance().getConnection();
@@ -69,6 +84,9 @@ public class ChamadoDAO {
 		}
 	}
 
+	/**
+	 * Função que retorna uma lista com todos os chamados
+	 */
 	public List<Chamado> pesquisarTodosChamados() throws DAOException {
 		List<Chamado> lista = new ArrayList<>();
 		try {

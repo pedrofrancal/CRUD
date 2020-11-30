@@ -17,6 +17,9 @@ import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 import javafx.util.converter.LocalDateStringConverter;
 
+/**
+ * Classe que controla as interações do cadastro de cliente
+ */
 public class CadastroClienteBoundary implements EventHandler<ActionEvent>, GerarTela{
 
 	private TextField txtEmail = new TextField();

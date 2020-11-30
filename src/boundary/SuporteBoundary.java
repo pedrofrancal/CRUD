@@ -16,6 +16,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
+/**
+ * Classe que gera a tela com as interações do suporte
+ */
 public class SuporteBoundary implements EventHandler<ActionEvent>, GerarTela {
 
 	private TextField txtEmail = new TextField();
@@ -30,6 +33,9 @@ public class SuporteBoundary implements EventHandler<ActionEvent>, GerarTela {
 	private TableView<Carrinho> tabela = new TableView<>();
 
 	@Override
+	/**
+	 * Função retorna a tela de suporte via pane
+	 */
 	public Pane gerarTela() {
 		
 		vincularCampos();
@@ -58,6 +64,9 @@ public class SuporteBoundary implements EventHandler<ActionEvent>, GerarTela {
 	}
 
 	@SuppressWarnings("unchecked")
+	/**
+	 * Função que vincula os campos com o controller
+	 */
 	private void vincularCampos() {
 		Bindings.bindBidirectional(txtEmail.textProperty(), sc.getEmailProperty());
 
@@ -72,6 +81,9 @@ public class SuporteBoundary implements EventHandler<ActionEvent>, GerarTela {
 	}
 
 	@Override
+	/**
+	 * Função que controla a interação com o controller
+	 */
 	public void handle(ActionEvent e) {
 		if(btnPesquisar == e.getTarget()) {
 			try {

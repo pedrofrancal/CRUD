@@ -1,6 +1,9 @@
 package dao;
 
 @SuppressWarnings("serial")
+/**
+ * Exceção para os DAOs
+ */
 public class DAOException extends Exception{
 	public DAOException() {
 		super();

@@ -14,6 +14,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
+/**
+ * Classe que controla as interações com o login
+ */
 public class LoginBoundary implements EventHandler<ActionEvent>, GerarTela {
 
 	GridPane grid = new GridPane();
@@ -25,6 +28,9 @@ public class LoginBoundary implements EventHandler<ActionEvent>, GerarTela {
 	private LoginController lg = new LoginController();
 
 	@Override
+	/**
+	 * Função que gera a tela de créditos
+	 */
 	public Pane gerarTela() {
 
 		vincularCampos();
@@ -47,12 +53,18 @@ public class LoginBoundary implements EventHandler<ActionEvent>, GerarTela {
 		return grid;
 	}
 
+	/**
+	 * Função que vincula os campos com o controller
+	 */
 	public void vincularCampos() {
 		Bindings.bindBidirectional(txtEmail.textProperty(), lg.getEmailProperty());
 		Bindings.bindBidirectional(txtSenha.textProperty(), lg.getSenhaProperty());
 	}
 
 	@Override
+	/**
+	 * Função que envia comando aos controllers
+	 */
 	public void handle(ActionEvent e) {
 		if (btnLogar == e.getTarget()) {
 			try {

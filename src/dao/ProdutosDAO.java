@@ -9,8 +9,14 @@ import java.util.List;
 
 import entity.Produto;
 
+/**
+ * Classe que controla produtos no banco de dados
+ */
 public class ProdutosDAO {
 
+	/**
+	 * Função que adiciona um produto no banco de dados
+	 */
 	public void adicionar(Produto p) throws DAOException{
 		try {
 			Connection con = ConnectionSingleton.getInstance().getConnection();
@@ -26,6 +32,9 @@ public class ProdutosDAO {
 		}
 	}
 	
+	/**
+	 * Função que retorna uma lista de produtos pesquisados por nome
+	 */
 	public List<Produto> pesquisarPorNome(String nome) throws DAOException{
 		List<Produto> lista = new ArrayList<>();
 		try {
@@ -48,6 +57,9 @@ public class ProdutosDAO {
 		return lista;
 	}
 	
+	/**
+	 * Função que retorna todos os produtos em uma lista
+	 */
 	public List<Produto> pesquisarTodosProdutos() throws DAOException{
 		List<Produto> lista = new ArrayList<>();
 		try {
@@ -69,6 +81,9 @@ public class ProdutosDAO {
 		return lista;
 	}
 	
+	/**
+	 * Função que adiciona a compra de um produto no banco de dados
+	 */
 	public void adicionarCompra(String email, int pedidoID) throws DAOException{
 		try {
 			Connection con = ConnectionSingleton.getInstance().getConnection();

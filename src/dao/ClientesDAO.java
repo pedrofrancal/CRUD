@@ -8,7 +8,13 @@ import entity.Cliente;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
+/**
+ * Classe controladora de clientes no banco de dados
+ */
 public class ClientesDAO {
+	/**
+	 * Função que adiciona os dados de um cliente no banco de dados
+	 */
 	public void adicionar(Cliente c) throws DAOException {
 		try {
 			Connection con = ConnectionSingleton.getInstance().getConnection();

@@ -14,10 +14,16 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 
+/**
+ * Classe controladora de login
+ */
 public class LoginController {
 	private StringProperty email = new SimpleStringProperty();
 	private StringProperty senha = new SimpleStringProperty();
 
+	/**
+	 * Função que gera dados do login a partir do property
+	 */
 	public Login getLogin() {
 		Login login = new Login();
 		login.setEmail(this.email.get());
@@ -25,6 +31,9 @@ public class LoginController {
 		return login;
 	}
 
+	/**
+	 * Função que interage com o DAO, retornando uma nova instancia hierarquica e um pane
+	 */
 	public Pane logar() {
 		Pane paneHierarquico = null;
 		Login user = getLogin();

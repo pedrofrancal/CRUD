@@ -10,9 +10,15 @@ import entity.Cliente;
 import entity.Login;
 import entity.Suporte;
 
+/**
+ * Classe para manipular o l ogin no banco de dados
+ */
 public class LoginDAO {
 
-
+	/**
+	 * Função que valida o login no banco de dados
+	 * Retorna verdadeiro ou falso caso funcione
+	 */
 	public boolean ValidaLogin(Login user) throws DAOException {
 		try {
 			Connection con = ConnectionSingleton.getInstance().getConnection();
@@ -36,11 +42,14 @@ public class LoginDAO {
 
 	}
 
+	/**
+	 * Função que retorna o tipo de usuario utilizando um objeto
+	 * Também conhecido como a coisa mais inteligente que o Pedro fez
+	 * @author Pedro
+	 */
 	public Login retornaTipo(Login user) throws DAOException {
 		Login userHierarchy = null;
 		try {
-//			Connection con = DriverManager.getConnection(String.format(
-//					"jdbc:jtds:sqlserver://%s:1433;databaseName=%s;user=%s;password=%s;", HOST, DB, USER, PASS));
 			Connection con = ConnectionSingleton.getInstance().getConnection();
 			String sql = "SELECT logon.email, \r\n"
 					+ "	CASE WHEN (logon.email = administrador.funcionario_logon_email)\r\n" + "	THEN\r\n"

@@ -19,6 +19,9 @@ import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 import javafx.util.converter.IntegerStringConverter;
 
+/**
+ * Classe que controla as interações do cliente
+ */
 public class ClienteBoundary implements EventHandler<ActionEvent>, GerarTela {
 
 	private TextField txtNome = new TextField();
@@ -38,6 +41,9 @@ public class ClienteBoundary implements EventHandler<ActionEvent>, GerarTela {
 	private TableView<Produto> tabela = new TableView<>();
 
 	@Override
+	/**
+	 * Função que retorna a Pane com a tela gerada
+	 */
 	public Pane gerarTela() {
 		vincularCampos();
 
@@ -69,6 +75,9 @@ public class ClienteBoundary implements EventHandler<ActionEvent>, GerarTela {
 	}
 
 	@SuppressWarnings("unchecked")
+	/**
+	 * Classe que vincula os campos
+	 */
 	private void vincularCampos() {
 		StringConverter<? extends Number> converter = new IntegerStringConverter();
 
@@ -92,6 +101,9 @@ public class ClienteBoundary implements EventHandler<ActionEvent>, GerarTela {
 	}
 
 	@Override
+	/**
+	 * Função que ativa as funções do controller pelos botões
+	 */
 	public void handle(ActionEvent e) {
 		if (btnChamado == e.getTarget()) {
 			BorderPane paneNovo = (BorderPane) panePrincipal.getParent();
@@ -113,6 +125,10 @@ public class ClienteBoundary implements EventHandler<ActionEvent>, GerarTela {
 		}
 	}
 
+	/**
+	 * Função para copiar o email para a boundary
+	 * @param email
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}

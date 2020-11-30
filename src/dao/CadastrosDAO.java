@@ -9,7 +9,14 @@ import java.util.List;
 
 import entity.Funcionario;
 
+/**
+ * Classe que manipula o banco de dados relacionados a cadastro
+ */
 public class CadastrosDAO {
+	
+	/**
+	 * Função que adiciona um funcionario no banco de dados
+	 */
 	public void adicionar(Funcionario f) throws DAOException {
 		try {
 			Connection con = ConnectionSingleton.getInstance().getConnection();
@@ -31,6 +38,10 @@ public class CadastrosDAO {
 		}
 	}
 
+	/**
+	 * Função que retorna uma lista de funcionarios do banco de dados
+	 * Pesquisa a lista por email
+	 */
 	public List<Funcionario> pesquisarPorEmail(String email) throws DAOException {
 		List<Funcionario> lista = new ArrayList<>();
 		try {
@@ -52,6 +63,9 @@ public class CadastrosDAO {
 		return lista;
 	}
 
+	/**
+	 * Função que atualiza o nome de um funcionario no banco de dados
+	 */
 	public void atualizar(Funcionario f) throws DAOException {
 		try {
 			Connection con = ConnectionSingleton.getInstance().getConnection();
@@ -68,6 +82,9 @@ public class CadastrosDAO {
 		}
 	}
 
+	/**
+	 * Função que deleta um funcionario do banco de dados pelo seu email
+	 */
 	public void deletar(Funcionario f) throws DAOException{
 		try {
 			Connection con = ConnectionSingleton.getInstance().getConnection();
